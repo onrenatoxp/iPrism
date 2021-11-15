@@ -1,0 +1,12 @@
+ion-thumbnail {
+    width: 90px;
+    height: 90px;
+}
+
+ion-button, ion-fab-button{
+    --box-shadow:none;
+}
+
+ion-fab-button{
+    margin-left: calc(50% - 28px);
+}

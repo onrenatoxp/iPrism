@@ -1,0 +1,8 @@
+{
+  "name": "iPrism",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

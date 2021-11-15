@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.alcoa.iPrism",
+	"appName": "iPrism",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

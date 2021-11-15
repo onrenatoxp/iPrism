@@ -1,0 +1,29 @@
+<app-header title="Home" ></app-header>
+
+<ion-content padding>
+    <ion-item >
+        <ion-label>
+        <h1>Library</h1>
+        </ion-label>
+      </ion-item>
+ 
+      <ion-slides [options]="slideOptsThumbs">
+        <ion-slide *ngFor="let item of dados">
+          <ion-card class="ion-no-border" (click)="GoOpcao(item)">
+            <img [src]="item.capa != ''?item.capa:'../assets/img/thumbler.png'"> 
+            <ion-card-header>
+              <ion-card-subtitle color="medium">{{item.descricao}}</ion-card-subtitle>
+
+            </ion-card-header>
+  
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+
+      <ion-item>
+          <ion-label><h1>Recently opened</h1></ion-label>
+      </ion-item>
+      <ion-list  *ngFor="let h of itensOpened">
+         <ion-item (click)="GoOpcao(h)"> {{h.descricao}} </ion-item>
+      </ion-list>
+</ion-content>

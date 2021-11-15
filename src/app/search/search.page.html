@@ -1,0 +1,30 @@
+<ion-header [translucent]="true"  class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Buscar</ion-title>
+  
+  </ion-toolbar>
+  <ion-searchbar color="medium"  placeholder="Títulos, Capítulos, seções e conteúdos"
+   showCancelButton="focus"
+   (ionClear) = "Cancel()"
+   [showCancelButton]="true" (keyup.enter)="filterList($event)"></ion-searchbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of result">
+    <ion-grid >
+      <ion-row>
+        <ion-col size="12">
+          <ion-label ><b>{{item.tipo}}</b></ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="item.tipo != 'Conteúdo'" size="2">{{item.indice}}</ion-col>
+        <ion-col (click)="listar(item)" [class]="item.tipo" [innerHTML]="item.descricao" class="texto"></ion-col>
+      </ion-row>
+      
+    </ion-grid>
+  </ion-item>
+   </ion-list>
+</ion-content>

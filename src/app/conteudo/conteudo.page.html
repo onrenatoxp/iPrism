@@ -1,0 +1,43 @@
+<app-header title="Conteúdo" back></app-header>
+<ion-item>
+  <ion-range [value]="size" [min]=13 [max]=30 (ionChange)="ionSliderForValues($event)"  
+  color="danger" pin="true">
+  <ion-label slot="start">A-</ion-label>
+  <ion-label slot="end">A+</ion-label>
+</ion-range>
+</ion-item>
+
+<ion-content padding>
+  <div *ngIf="zoomActive" class="backdrop" [style.opacity]="zoomScale"></div>
+ 
+  <ion-item>
+    <h1>{{modalTitle}}</h1>
+  </ion-item>
+  <ion-list>
+    <ion-item style="overflow: visible; "  lines="none" *ngFor="let item of itensRecuperados" #geral> 
+       <ion-row size=12  >
+           <span *ngIf="item.tipo != 'Capítulo'" [class]="item.tipo" class="texto" [ngStyle]="{'font-size.px': size}"  [innerHTML]="item.descricao" > </span>
+           <ion-item  *ngIf="item.tipo == 'Capítulo'">
+               <a  href="../conteudo?indiceLivro={{item.id}}&indicePai={{item.indice}}" >{{item.indice}} {{item.descricaoLessDom}}</a>
+           </ion-item>
+          
+          
+            <ion-row  *ngIf = "item.capa != null" class="image-card"  #card>
+            <ion-slides class="image-slide" [options]="sliderZoomOpts" #zoomslides>
+                <ion-slide>
+                    <div class="swiper-zoom-container" (touchstart)="touchStart(card, geral)"
+                        (touchend)="touchEnd(zoomslides, card, geral)">
+                        <img [src]="item.capa" />
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </ion-row>
+
+       </ion-row>
+        
+    </ion-item>
+   </ion-list>
+
+
+</ion-content>
+

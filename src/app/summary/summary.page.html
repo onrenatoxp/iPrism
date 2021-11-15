@@ -1,0 +1,13 @@
+<app-header title="Summary" back></app-header>
+
+<ion-content padding>
+  <ion-item>
+    <h1>{{modalTitle}}</h1>
+  </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let item of dados">
+      <ion-col size="2">{{item.indice}}</ion-col>
+      <ion-col (click)="listarFilhos(item.id, item.indice)" [class]="item.tipo" class="texto">{{item.descricao}}</ion-col>
+    </ion-item>
+   </ion-list>
+</ion-content>

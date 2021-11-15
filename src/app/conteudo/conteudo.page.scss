@@ -1,0 +1,45 @@
+ion-label{
+    font-size: 14px !important;
+}
+
+ion-list{
+    padding-left: 8px !important;
+}
+
+ion-item h1{
+    font-size: 18px;
+}
+
+span.Conteúdo{
+    white-space: pre-wrap;
+    font-size: 13px;
+    text-align: justify;
+    padding-left: 0px !important;
+}
+
+span{
+     margin-bottom: 10px;
+     margin-top: 10px;
+}
+
+
+table td span{
+    white-space: normal;
+}
+
+
+
+//zooom
+
+.image-slide,
+.image-card {
+    overflow: visible;
+}
+
+ 
+.image-card {
+    z-index: 11;
+}
+ 
+
+
