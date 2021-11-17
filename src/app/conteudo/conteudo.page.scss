@@ -27,6 +27,16 @@ table td span{
     white-space: normal;
 }
 
+#range{
+    position: absolute;
+    top: 0;
+    width: 100;
+    display: table;
+}
+
+ion-content{
+    --offset-top: 70px !important;
+}
 
 
 //zooom

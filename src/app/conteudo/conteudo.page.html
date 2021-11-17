@@ -1,13 +1,13 @@
 <app-header title="Conteúdo" back></app-header>
-<ion-item>
-  <ion-range [value]="size" [min]=13 [max]=30 (ionChange)="ionSliderForValues($event)"  
+<ion-item #range class="ion-padding-horizontal" >
+  <ion-range class="ion-no-padding" [value]="size" [min]=13 [max]=30 (ionChange)="ionSliderForValues($event)"  
   color="danger" pin="true">
   <ion-label slot="start">A-</ion-label>
   <ion-label slot="end">A+</ion-label>
 </ion-range>
 </ion-item>
 
-<ion-content padding>
+<ion-content padding (ionScroll)='onContentScroll($event)' scrollEvents="true" >
   <div *ngIf="zoomActive" class="backdrop" [style.opacity]="zoomScale"></div>
  
   <ion-item>

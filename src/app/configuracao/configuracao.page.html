@@ -14,6 +14,24 @@
             (ionChange)="onToggleBtnChange($event)">
           </ion-toggle>
           </ion-item>
+          <ion-item lines="none"></ion-item>
+          <ion-item lines="none">
+            <ion-icon slot="start" name="archive"></ion-icon>
+              Armazenamento
+          </ion-item>
+
+          <ion-list>
+            <ion-item *ngFor="let item of dados">
+              <ion-label>{{item.descricao}}</ion-label>
+              <ion-button fill="clear" size="small" (click)="limparCache(item)" slot="end">
+                <ion-icon name="remove-circle-outline"></ion-icon>
+                <ion-label> Cache</ion-label>
+              </ion-button>
+            </ion-item>
+          </ion-list>
+
 
         </ion-list>
+
+      
 </ion-content>

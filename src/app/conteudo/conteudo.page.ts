@@ -1,4 +1,4 @@
-import { Component, OnInit , ChangeDetectorRef} from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { IonSlides, LoadingController, NavController, ToastController } from '@ionic/angular';
@@ -12,7 +12,12 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './conteudo.page.html',
   styleUrls: ['./conteudo.page.scss'],
 })
+
+
+
 export class ConteudoPage implements OnInit {
+  @ViewChild("range") range: HTMLElement;
+
   public URL_API:string;
   public modalTitle: string;
   public descricao: string;
@@ -41,7 +46,9 @@ export class ConteudoPage implements OnInit {
     private domSanitizer: DomSanitizer,
     private app:AppComponent,
     private changeDetectorRef: ChangeDetectorRef,
-    public api: ApiService) { }
+    public api: ApiService,
+    public element: ElementRef, 
+    public renderer: Renderer2) { }
 
     ngOnInit() {
       this.route.queryParams.subscribe(params => {    
@@ -51,19 +58,19 @@ export class ConteudoPage implements OnInit {
   }
   
   ionViewWillEnter(){
-
+    this.renderer.setStyle(this.range['el'], 'webkitTransition', 'top 700ms');
 
     this.storage.get('fontSize').then(tam => {
         this.size = tam ;
     }); 
+  }
 
-    
-
-    // this.storage.get('archive').then(dados => {
-    //     this.itensRecuperados  = dados;
-    // });
-
-
+  onContentScroll(event) {
+    if (event.detail.scrollTop >= 50) {
+      this.renderer.setStyle(this.range['el'], 'top', '-76px');
+    } else {
+      this.renderer.setStyle(this.range['el'], 'top', '0');
+    }
   }
 
 
@@ -78,7 +85,7 @@ export class ConteudoPage implements OnInit {
 
 
       
-      this.storage.get('itemsBook' + $indiceLivro).then($items => {
+      this.storage.get('archive').then($items => {
 
         
  
@@ -103,51 +110,10 @@ export class ConteudoPage implements OnInit {
           }
       
         }
-
-
-
-
         loading.dismiss();
 
-
-
-
       });
- 
-          // this.api.GetItem($indiceLivro, $indicePai).subscribe(
-          //   data => {
     
-          //     loading.dismiss();
-      
-          //       this.result = data;
-
-          //       console.log( this.result)
-
-          //       this.modalTitle = this.result[0].indicePai + '. ' + this.result[0].descricaoPai;
- 
- 
-     
-          //  }, (Error) =>{
-             
-      
-          //   for (let i = 0; i < this.itensRecuperados.length; i++) {
-          //     if (this.itensRecuperados[i].indicePai === $indicePai) {
-               
-          //       this.result = this.itensRecuperados[i];
-          //       this.modalTitle = this.result.indicePai + '. ' + this.result.descricaoPai;
-          //       this.descricao = this.result.descricao;
-          //       this.tipo = this.result.tipo;
-          //       break;
-          //     }
-          
-          //   }
-            
-          //   loading.dismiss();
-            
-          //   });
-    
-    
-           
     }; 
     ionSliderForValues(range:any){
 

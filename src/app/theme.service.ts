@@ -73,6 +73,7 @@ function CSSTextGenerator(colors) {
     --ion-background-color: ${light};
     --ion-text-color: ${dark};
     --ion-toolbar-background-color: ${contrast(light, 0.1)};
+    --ion-toolbar-background: ${contrast(light, 0)};
     --ion-toolbar-text-color: ${contrast(dark, 0.1)};
     --ion-item-background-color: ${contrast(light, 0.3)};
     --ion-item-text-color: ${contrast(dark, 0.3)};

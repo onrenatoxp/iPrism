@@ -30,3 +30,9 @@
         --background: rgba(44, 39, 45, 0.2);
     }
 }
+
+.alert-title.sc-ion-alert-ios, 
+.alert-message.sc-ion-alert-ios,
+.loading-content.sc-ion-loading-ios {
+    color: #000 !important;
+}
