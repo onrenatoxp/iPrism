@@ -69,7 +69,7 @@ export class ConteudoPage implements OnInit {
     if (event.detail.scrollTop >= 50) {
       this.renderer.setStyle(this.range['el'], 'top', '-76px');
     } else {
-      this.renderer.setStyle(this.range['el'], 'top', '0');
+      this.renderer.setStyle(this.range['el'], 'top', '20px');
     }
   }
 
@@ -85,7 +85,7 @@ export class ConteudoPage implements OnInit {
 
 
       
-      this.storage.get('archive').then($items => {
+      this.storage.get('itemsBook').then($items => {
 
         
  

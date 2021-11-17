@@ -41,7 +41,7 @@ export class SearchPage implements OnInit {
 
 
   async filterList(evt){
-
+    
     if (evt && evt.key === "Enter"){
 
     this.result = []
