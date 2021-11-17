@@ -41,15 +41,19 @@ export class SearchPage implements OnInit {
 
 
   async filterList(evt){
+
+    console.log(evt);
     
     if (evt && evt.key === "Enter"){
 
-    this.result = []
-        
 
-    const loading = await this.loadingCtrl.create({
-      message: 'Loading'
-    });
+      console.log(evt.key);
+      this.result = []
+          
+
+      const loading = await this.loadingCtrl.create({
+        message: 'Loading'
+      });
   
        await loading.present();
 
