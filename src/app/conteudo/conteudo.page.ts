@@ -85,7 +85,7 @@ export class ConteudoPage implements OnInit {
 
 
       
-      this.storage.get('itemsBook').then($items => {
+      this.storage.get('itemsBook' + $indiceLivro).then($items => {
 
         
  
