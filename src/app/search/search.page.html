@@ -6,7 +6,7 @@
   <ion-searchbar color="medium"  placeholder="Títulos, Capítulos, seções e conteúdos"
    showCancelButton="focus"
    (ionClear) = "Cancel()"
-   [showCancelButton]="true" (keyup.enter)="filterList($event)"></ion-searchbar>
+   [showCancelButton]="true" (keypress)="filterList($event)"></ion-searchbar>
 
 </ion-header>
 

@@ -12,7 +12,8 @@
           <ion-card class="ion-no-border" (click)="GoOpcao(item)">
             <img [src]="item.capa != ''?item.capa:'../assets/img/thumbler.png'"> 
             <ion-card-header>
-              <ion-card-subtitle color="medium">{{item.descricao}}</ion-card-subtitle>
+              <!-- <ion-card-subtitle color="medium">{{item.descricao}}</ion-card-subtitle> -->
+              <span color="medium">{{item.descricao}}</span>
 
             </ion-card-header>
   

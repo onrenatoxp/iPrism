@@ -42,6 +42,8 @@ export class SearchPage implements OnInit {
 
   async filterList(evt){
 
+    if (evt && evt.key === "Enter"){
+
     this.result = []
         
 
@@ -120,7 +122,7 @@ export class SearchPage implements OnInit {
         loading.dismiss();
     };  
 
-    
+  }
   };
     
     async listar(filtro){
