@@ -58,7 +58,7 @@ export class ConteudoPage implements OnInit {
   }
   
   ionViewWillEnter(){
-    this.renderer.setStyle(this.range['el'], 'webkitTransition', 'top 700ms');
+    this.renderer.setStyle(this.range['el'], 'webkitTransition', 'top 500ms');
 
     this.storage.get('fontSize').then(tam => {
         this.size = tam ;
@@ -66,10 +66,10 @@ export class ConteudoPage implements OnInit {
   }
 
   onContentScroll(event) {
-    if (event.detail.scrollTop >= 50) {
+    if (event.detail.scrollTop >= 40) {
       this.renderer.setStyle(this.range['el'], 'top', '-76px');
     } else {
-      this.renderer.setStyle(this.range['el'], 'top', '20px');
+      this.renderer.setStyle(this.range['el'], 'top', '0px');
     }
   }
 
@@ -85,9 +85,9 @@ export class ConteudoPage implements OnInit {
 
 
       
-      this.storage.get('itemsBook' + $indiceLivro).then($items => {
+     // this.storage.get('itemsBook' + $indiceLivro).then($items => {
 
-        
+      this.storage.get('archive').then($items => {  
  
         for (let i = 0; i < $items.length; i++) {
 
