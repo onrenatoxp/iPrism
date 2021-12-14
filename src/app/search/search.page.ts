@@ -30,7 +30,10 @@ export class SearchPage implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       this.indiceLivro  = params['id']; 
+      this.storage.set('ActualLivroId', this.indiceLivro );
    });
+
+ 
 
   }
 
@@ -61,9 +64,19 @@ export class SearchPage implements OnInit {
 
       if(key != null){
 
-  
-      
 
+        if(this.indiceLivro == null){
+
+          this.storage.get('ActualLivroId' + this.indiceLivro).then($items => { 
+
+             this.indiceLivro = $items;
+
+          });
+
+        }
+
+        
+  
         this.storage.get('itemsBook' + this.indiceLivro).then($items => { 
 
    
